@@ -1,19 +1,19 @@
 package com.urianskui.studentweb.exceptions;
 
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+@Data
 public class ApiException {
 
     private String message;
     private int status;
+    private LocalDateTime time;
 
     public ApiException(String message, int status) {
         this.message = message;
         this.status = status;
-    }
-
-    public String toString() {
-        return "{\n" +
-                "message: " + message+ ",\n"+
-                "status: " + status + "\n"+
-                "}";
+        time =LocalDateTime.now();
     }
 }
